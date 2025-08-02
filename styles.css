@@ -1,0 +1,241 @@
+/* RESET Y BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  background-color: black;
+  font-family: 'Arial', sans-serif;
+  transition: background 1s ease, opacity 1s ease;
+}
+
+/* ELEMENTOS OCULTOS / ANIMACIONES */
+.hidden {
+  display: none !important;
+}
+
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; }
+}
+
+@keyframes fadeInCap {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInFinal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* MODAL INICIAL */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('alejandra.jpg') center center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+#circle-transition {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(14, 12, 12, 0.9), rgba(87, 3, 7, 0.8));
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 9999;
+  pointer-events: none;
+  transition: transform 0.8s ease-in-out, opacity 0.8s;
+  filter: blur(8px);
+  opacity: 0;
+}
+
+#circle-transition.active {
+  width: 250vmax;
+  height: 250vmax;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  animation: fadeIn 2s ease;
+  max-width: 800px;
+  width: 100%;
+}
+
+.modal-content h2 {
+  font-size: 3.5rem;
+  color: #e50914;
+  font-family: 'Arial Black', Arial, sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.modal-content p {
+  font-size: 1.8rem;
+  font-style: italic;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+}
+
+#ver-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#ver-btn:hover {
+  background-color: #e50914;
+}
+
+/* VIDEO CONTAINERS */
+#intro-container,
+#final-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CAPÍTULO 31 */
+#capitulo31-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  color: #e50914;
+  font-family: 'Arial Black', Arial, sans-serif;
+  text-align: center;
+  animation: fadeInCap 2s forwards;
+  padding: 0 20px;
+}
+
+.capitulo31-content h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
+}
+
+.capitulo31-content p {
+  font-size: 1.8rem;
+  margin-bottom: 0.4em;
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+
+.capitulo31-content h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin-top: 0.6em;
+}
+
+/* MODAL FINAL */
+#final-modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeInFinal 2s ease forwards;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .modal-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .modal-content p {
+    font-size: 1.4rem;
+  }
+
+  #ver-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .capitulo31-content h1 {
+    font-size: 3.5rem;
+    letter-spacing: 0.2em;
+  }
+
+  .capitulo31-content p {
+    font-size: 1.4rem;
+  }
+
+  .capitulo31-content h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content h2 {
+    font-size: 2rem;
+  }
+
+  .modal-content p {
+    font-size: 1.2rem;
+  }
+
+  .capitulo31-content h1 {
+    font-size: 2.5rem;
+    letter-spacing: 0.15em;
+  }
+
+  .capitulo31-content p {
+    font-size: 1.1rem;
+  }
+
+  .capitulo31-content h2 {
+    font-size: 1.5rem;
+  }
+}
